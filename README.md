@@ -1,6 +1,6 @@
 # FTC Team TurboTrons 23279
 
-First tech challenge
+First Tech Challenge
 
 ## Developers
 - Namish Gohil
