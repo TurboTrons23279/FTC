@@ -2,6 +2,8 @@
 
 First Tech Challenge
 
+## Software update
+
 ## Developers
 - Namish Gohil
 - Nikhil Ratakonda
@@ -10,4 +12,3 @@ First Tech Challenge
 - Mukund Rao
 - Samiksh Musini
 - Shinoy Patil
-  
