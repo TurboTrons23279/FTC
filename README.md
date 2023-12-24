@@ -2,7 +2,7 @@
 
 (First Tech Challenge)
 
-## Developers
+## Team Members
 - Namish Gohil -- Coding
 - Nikhil Ratakonda -- Building
 - Madhav Shrawan -- Building
@@ -16,3 +16,9 @@
 - Nilesh Patil -- Side Coach
 - Umesh Gohil -- Adult Helper
 - Shreedar Musini -- Adult Helper
+
+### Meet Times
+On Friday and Saturday
+On the 1 Sunday before the league meet
+
+#### Always follow Gracious Professionalism
