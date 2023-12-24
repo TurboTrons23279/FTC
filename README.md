@@ -3,11 +3,11 @@
 First Tech Challenge
 
 ## Developers
-- Namish Gohil
-- Nikhil Ratakonda
-- Madhav Shrawan
-- Moksh Dasari
-- Mukund Rao
-- Samiksh Musini
-- Shinoy Patil
+- Namish Gohil: Coder
+- Nikhil Ratakonda: Builder
+- Madhav Shrawan: Builder
+- Moksh Dasari: Builder
+- Mukund Rao: Coder
+- Samiksh Musini: Coder
+- Shinoy Patil: Builder
   
