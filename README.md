@@ -1,21 +1,21 @@
-# FTC Team TurboTrons 23279
+# FTC Team TurboTrons 23279 
 
 (First Tech Challenge)
 
 ## Team Members
 - Namish Gohil -- Coding
-- Nikhil Ratakonda -- Building
-- Madhav Shrawan -- Building
-- Moksh Dasari -- Building
+- Nikhil Ratakonda -- Building, CAD
+- Madhav Shrawan -- Building, CAD
+- Moksh Dasari -- Building, CAD
 - Mukund Rao -- Coding
 - Samiksh Musini -- Coding
-- Shinoy Patil -- Building
+- Shinoy Patil -- Building, CAD
   
 ## Adult Coaches
 - Shilpa Ganesh -- Head Coach
 - Nilesh Patil -- Side Coach
 - Umesh Gohil -- Adult Helper
-- Shreedar Musini -- Adult Helper
+- Sreedhar Musini -- Adult Helper
 
 ### Meet Times
 On Friday and Saturday
