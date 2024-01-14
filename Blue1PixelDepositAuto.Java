@@ -78,11 +78,10 @@ public class Blue1PixelDepositAuto extends LinearOpMode {
                 driveFunction(DRIVE_SPEED, 1,1,1,1);
                 driveFunction(DRIVE_SPEED,-31,-31,-31,-31);
                 driveFunction(TURN_SPEED,-48,48,-48,48);
-                driveFunction(DRIVE_SPEED,3,-3,-3,3);
-                driveFunction(DRIVE_SPEED,-1,-1,-1,-1);
+                driveFunction(DRIVE_SPEED,5,-5,-5,5);
+                driveFunction(DRIVE_SPEED,2,2,2,2);
                 pixelDeposit();
-                driveFunction(DRIVE_SPEED,-26,26,26,-26);
-                driveFunction(DRIVE_SPEED,4,4,4,4);
+                driveFunction(DRIVE_SPEED,-29,29,29,-29);
             } else if (inchesToLeft < inchesToRight && inchesToLeft < inchesToFront) {
                 driveFunction(TURN_SPEED, -24, 24, -24, 24);
                 driveFunction(DRIVE_SPEED, 1, 1, 1, 1);
@@ -90,17 +89,17 @@ public class Blue1PixelDepositAuto extends LinearOpMode {
                 driveFunction(DRIVE_SPEED, -25, 25, 25, -25);
                 driveFunction(DRIVE_SPEED, 31, 31, 31, 31);
                 driveFunction(DRIVE_SPEED,18,-18,-18,18);
-                driveFunction(DRIVE_SPEED,-3,3,3,3);
-                driveFunction(DRIVE_SPEED,-1,-1,-1,-1);
+                driveFunction(DRIVE_SPEED,-5,5,5,5);
+                driveFunction(DRIVE_SPEED,2,2,2,2);
                 pixelDeposit();
-                driveFunction(DRIVE_SPEED,-20,20,20,-20);
+                driveFunction(DRIVE_SPEED,-22,22,22,-22);
                 driveFunction(DRIVE_SPEED,4,4,4,4);
             } else {//center
                 driveFunction(DRIVE_SPEED, 2,2,2,2);
                 driveFunction(DRIVE_SPEED, -2,-2,-2,-2);
                 driveFunction(DRIVE_SPEED, -35,35,35,-35);
                 driveFunction(TURN_SPEED,-24,24,-24,24);
-                driveFunction(DRIVE_SPEED,-1,-1,-1,-1);
+                driveFunction(DRIVE_SPEED,2,2,2,2);
                 pixelDeposit();
                 driveFunction(DRIVE_SPEED,-27,27,27,-27);//strafing to the right
                 driveFunction(DRIVE_SPEED,4,4,4,4);
