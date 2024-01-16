@@ -1,0 +1,66 @@
+package org.firstinspires.ftc.teamcode;
+import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
+import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.util.ElapsedTime;
+
+@Autonomous(name = "HangMechanism")
+public class HangMechanism extends LinearOpMode {
+    private ElapsedTime runtime = new ElapsedTime();
+    DrivetrainAutonomous drive;
+    private DcMotor HangMechanismLeft;
+    private DcMotor HangMechanismRight;
+    static final double COUNTS_PER_MOTOR_REV = 537.6;
+    static final double DRIVE_SPEED = 0.5;
+    @Override
+    public void runOpMode() {
+        drive = new DrivetrainAutonomous(hardwareMap);
+        HangMechanismLeft = hardwareMap.get(DcMotor.class, "LeftHang");
+        HangMechanismLeft.setDirection(DcMotor.Direction.FORWARD);
+        HangMechanismLeft.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        HangMechanismLeft.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+
+        HangMechanismRight = hardwareMap.get(DcMotor.class, "RightHang");
+        HangMechanismRight.setDirection(DcMotor.Direction.REVERSE);
+        HangMechanismRight.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        HangMechanismRight.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+
+        waitForStart();
+        if (opModeIsActive()) {
+
+            telemetry.addData("OpMode Status", "OpMode Active");
+            telemetry.update();
+            sleep(5000);
+            HangMechanismLeft.setTargetPosition(500);
+            HangMechanismLeft.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+            HangMechanismLeft.setPower(Math.abs(0.4));
+
+            HangMechanismRight.setTargetPosition(500);
+            HangMechanismRight.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+            HangMechanismRight.setPower(Math.abs(0.4));
+            //driveFunction(DRIVE_SPEED,500);
+
+            while (opModeIsActive() &&
+                    HangMechanismLeft.isBusy() && HangMechanismRight.isBusy() ){
+
+
+                //&& frontRight.isBusy() && backLeft.isBusy() && backRight.isBusy()) {
+
+                // Display it for the driver.
+                //  telemetry.addData("Running to",  " %7d :%7d", newLeftTargetFront,  newRightTargetFront);
+                telemetry.addData("Currently at",  " at %7d",
+                        HangMechanismLeft.getCurrentPosition() );
+                telemetry.addData("Currently at",  " at %7d",
+                        HangMechanismRight.getCurrentPosition() );
+                telemetry.update();
+
+            }
+        }
+    }
+
+     {
+    }
+
+    public void setHangMechanism(String stage_hang) {
+    }
+}
