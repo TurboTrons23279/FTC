@@ -84,9 +84,9 @@ public class Blue2DistanceSensor extends LinearOpMode {
             encoderDrive(DRIVE_SPEED,-4,-4,-4,-4);
             encoderDrive(DRIVE_SPEED,-25,25,25,-25);
             encoderDrive(DRIVE_SPEED,-1,-1,-1,-1);
-            encoderDrive(DRIVE_SPEED,33,33,33,33);
+            encoderDrive(DRIVE_SPEED,60,60,60,60);
             encoderDrive(DRIVE_SPEED,24,-24,-24,24);
-            encoderDrive(DRIVE_SPEED,40,40,40,40);
+            encoderDrive(DRIVE_SPEED,13,13,13,13);
             encoderDrive(DRIVE_SPEED,-4,4,4,-4);
             encoderDrive(DRIVE_SPEED,3,3,3,3);
             encoderDrive(DRIVE_SPEED,-2,2,2,-2);
@@ -105,7 +105,7 @@ public class Blue2DistanceSensor extends LinearOpMode {
             encoderDrive(DRIVE_SPEED, 75, 75, 75, 75);
             encoderDrive(DRIVE_SPEED,4,-4,-4,4);
             encoderDrive(DRIVE_SPEED,1,1,1,1);
-            encoderDrive(DRIVE_SPEED,4,-4,-4,4);
+            encoderDrive(DRIVE_SPEED,2,-2,-2,2);
             pixelDeposit();
           //  sleep(3000);
         }
