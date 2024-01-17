@@ -78,22 +78,22 @@ public class Red1PixelDepositAuto extends LinearOpMode {
                 driveFunction(DRIVE_SPEED, 1, 1, 1, 1);
                 driveFunction(DRIVE_SPEED, -2, -2, -2, -2);
                 driveFunction(DRIVE_SPEED, 25, -25, -25, 25);
-                driveFunction(DRIVE_SPEED, 31, 31, 31, 31);
+                driveFunction(DRIVE_SPEED, 34, 34, 34, 34);
                 driveFunction(DRIVE_SPEED,-18,18,18,-18);
                 pixelDeposit();
                 driveFunction(DRIVE_SPEED,20,-20,-20,20);
-                driveFunction(DRIVE_SPEED,5,5,5,5);
             } else if (inchesToLeft < inchesToRight && inchesToLeft < inchesToFront) {
                 driveFunction(TURN_SPEED,-24,24,-24,24);
                 driveFunction(DRIVE_SPEED, 1,1,1,1);
-                driveFunction(DRIVE_SPEED,-33,-33,-33,-33);
+                driveFunction(DRIVE_SPEED,-34,-34,-34,-34);
                 driveFunction(DRIVE_SPEED,6,-6,-6,6);
                 driveFunction(TURN_SPEED,-48,48,-48,48);
                 pixelDeposit();
                 driveFunction(DRIVE_SPEED,-14,14,14,-14);
 
             } else {//center
-                driveFunction(DRIVE_SPEED, 36,-36,-36,36);
+                driveFunction(DRIVE_SPEED, -1,-1,-1,-1);
+                driveFunction(DRIVE_SPEED, 38,-38,-38,38);
                 driveFunction(TURN_SPEED,24,-24,24,-24);
                 pixelDeposit();
                 driveFunction(DRIVE_SPEED,27,-27,-27,27);//strafing to the right
