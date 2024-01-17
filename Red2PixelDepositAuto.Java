@@ -72,7 +72,7 @@ public class Red2PixelDepositAuto extends LinearOpMode {
                 telemetry.addData("Front Sensor Distance is shortest ", inchesToFront);
                 driveFunction(DRIVE_SPEED, 2,2, 2, 2);
                 driveFunction(DRIVE_SPEED, -2,-2,-2,-2);
-                driveFunction(DRIVE_SPEED, 90, -90, -90, 90);
+                driveFunction(DRIVE_SPEED, 93, -93, -93, 93);
                 driveFunction(TURN_SPEED,24,-24,24,-24);
                 driveFunction(DRIVE_SPEED,-2,2,2,-2);
                 pixelDeposit();
@@ -83,7 +83,7 @@ public class Red2PixelDepositAuto extends LinearOpMode {
 
                 driveFunction(TURN_SPEED, -24, 24, -24, 24);
                 driveFunction(DRIVE_SPEED, 1, 1, 1, 1);
-                driveFunction(0.4, -78, -78, -78, -78);
+                driveFunction(0.4, -80, -80, -80, -80);
                 driveFunction(DRIVE_SPEED,10,-10,-10,10);
                 driveFunction(TURN_SPEED,48,-48,48,-48);
                 pixelDeposit();
@@ -95,7 +95,7 @@ public class Red2PixelDepositAuto extends LinearOpMode {
                 driveFunction(DRIVE_SPEED, 2, 2, 2, 2);
                 driveFunction(DRIVE_SPEED, -3, -3, -3, -3);
                 driveFunction(DRIVE_SPEED, -25, 25, 25, -25);
-                driveFunction(DRIVE_SPEED, 79, 79, 79, 79);
+                driveFunction(DRIVE_SPEED, 84, 84, 84, 84);
                 driveFunction(DRIVE_SPEED,36,-36,-36,36);
                 pixelDeposit();
 
