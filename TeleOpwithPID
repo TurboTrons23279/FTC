@@ -1,0 +1,101 @@
+package org.firstinspires.ftc.teamcode;
+
+
+import com.acmerobotics.dashboard.config.Config;
+import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
+import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
+import com.qualcomm.robotcore.hardware.Gamepad;
+
+import org.firstinspires.ftc.teamcode.ArmForBhindi;
+import org.firstinspires.ftc.teamcode.ClawForBhindi;
+import org.firstinspires.ftc.teamcode.DrivetrainBhindi;
+import org.firstinspires.ftc.teamcode.StatesBhindi;
+import org.firstinspires.ftc.teamcode.HangMechanism;
+@Config
+@TeleOp(name = "TeleOp For League", group = "Robot")
+public class TeleOpwithPID extends LinearOpMode {
+
+    StatesBhindi states;
+    org.firstinspires.ftc.teamcode.ArmForBhindi arm;
+    ClawForBhindi claw;
+
+    DrivetrainBhindi drive;
+    DroneLauncher droneLauncher;
+    HangMechanism hangMechanism;
+
+
+    @Override
+    public void runOpMode() throws InterruptedException {
+
+        claw = new ClawForBhindi(hardwareMap);
+
+        arm = new org.firstinspires.ftc.teamcode.ArmForBhindi(hardwareMap);
+
+        droneLauncher = new DroneLauncher(hardwareMap);
+
+        hangMechanism = new HangMechanism(hardwareMap);
+
+        states = new StatesBhindi(claw, arm, droneLauncher, hangMechanism);
+
+        Gamepad currentGamepad1 = new Gamepad();
+        Gamepad currentGamepad2 = new Gamepad();
+
+        Gamepad previousGamepad1 = new Gamepad();
+        Gamepad previousGamepad2 = new Gamepad();
+
+        drive = new DrivetrainBhindi(hardwareMap, gamepad1);
+
+        waitForStart();
+        while (opModeIsActive()) {
+
+            previousGamepad1.copy(currentGamepad1);
+            currentGamepad1.copy(gamepad1);
+
+            previousGamepad2.copy(currentGamepad2);
+            currentGamepad2.copy(gamepad2);
+            if (currentGamepad1.a && !previousGamepad1.a){
+                states.setStatePos(StatesBhindi.statePos.LAUNCH_DRONE);
+            }
+
+            if (currentGamepad1.right_bumper && !previousGamepad1.right_bumper) {
+                //states.setStatePos(StatesBhindi.statePos.HANG);
+                executeHang();
+            }
+
+            if (currentGamepad2.left_bumper && !previousGamepad2.left_bumper) {
+                states.setStatePos(StatesBhindi.statePos.INIT);
+            }
+            if (currentGamepad2.right_bumper && !previousGamepad2.right_bumper) {
+                states.setStatePos(StatesBhindi.statePos.HANGARM);
+            }
+
+            if (currentGamepad2.x && !previousGamepad2.x){
+                states.setStatePos(StatesBhindi.statePos.CLAW_CLOSE);
+            }
+            if (currentGamepad2.y && !previousGamepad2.y){
+                states.setStatePos(StatesBhindi.statePos.CLAW_OPEN);
+            }
+
+            if (currentGamepad2.a && !previousGamepad2.a){
+               states.setStatePos(StatesBhindi.statePos.INTAKE_AND_OPEN_CLAW);
+                //states.setStatePos(StatesBhindi.statePos.INTAKE);
+            }
+
+            if (currentGamepad2.b && !previousGamepad2.b){
+                states.setStatePos(StatesBhindi.statePos.DEPOSIT);
+            }
+
+
+            states.update();
+            drive.move();
+        }
+
+
+    }
+
+    public void executeHang(){
+        hangMechanism.executeHang(this);
+
+    }
+
+}
