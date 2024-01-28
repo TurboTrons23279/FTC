@@ -1,7 +1,7 @@
-
-//This is the latest code for Blue1 Autonomous with Pixel Deposit.
+//This is the latest code for Red1 Autonomous with Pixel Deposit.
 package org.firstinspires.ftc.teamcode;
         import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+        import com.qualcomm.robotcore.eventloop.opmode.Disabled;
         import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
         import com.qualcomm.robotcore.hardware.DcMotor;
         import com.qualcomm.robotcore.hardware.DcMotorSimple;
@@ -15,8 +15,8 @@ package org.firstinspires.ftc.teamcode;
         import org.checkerframework.checker.units.qual.A;
         import org.firstinspires.ftc.robotcore.external.navigation.DistanceUnit;
 
-@Autonomous(name = "Blue 1 Autonomous with Pixel Deposit")
-public class Blue1PixelDepositAuto extends LinearOpMode {
+@Autonomous(name = "Red 1 Autonomous with Pixel Deposit")
+public class Red1PixelDepositAuto extends LinearOpMode {
 
     private DistanceSensor sensorCenter;
     private DistanceSensor sensorLeft;
@@ -33,10 +33,10 @@ public class Blue1PixelDepositAuto extends LinearOpMode {
     private DcMotor backLeft;
     private DcMotor backRight;
     static final double COUNTS_PER_MOTOR_REV = 537.6;
-    // static final double DRIVE_GEAR_REDUCTION = 1.0;
-    // static final double WHEEL_DIAMETER_INCHES = 3.77953;
+   // static final double DRIVE_GEAR_REDUCTION = 1.0;
+   // static final double WHEEL_DIAMETER_INCHES = 3.77953;
     //static final double COUNTS_PER_INCH = (COUNTS_PER_MOTOR_REV * DRIVE_GEAR_REDUCTION) /
-    //    (WHEEL_DIAMETER_INCHES * 3.1415);
+        //    (WHEEL_DIAMETER_INCHES * 3.1415);
     static final double DRIVE_SPEED = 0.3;
     static final double TURN_SPEED = 0.2;
 
@@ -74,33 +74,34 @@ public class Blue1PixelDepositAuto extends LinearOpMode {
 
             sleep(2000);
 
+
+
             if (inchesToRight < inchesToLeft && inchesToRight < inchesToFront) {
-                driveFunction(TURN_SPEED,24,-24,24,-24);
-                driveFunction(DRIVE_SPEED, 1,1,1,1);
-                driveFunction(DRIVE_SPEED,-31,-31,-31,-31);
-                driveFunction(TURN_SPEED,-48,48,-48,48);
-                driveFunction(DRIVE_SPEED,5,-5,-5,5);
-                driveFunction(DRIVE_SPEED,2,2,2,2);
-                pixelDeposit();
-                driveFunction(DRIVE_SPEED,-29,29,29,-29);
-            } else if (inchesToLeft < inchesToRight && inchesToLeft < inchesToFront) {
-                driveFunction(TURN_SPEED, -24, 24, -24, 24);
+                driveFunction(TURN_SPEED, 24, -24, 24, -24); //right
                 driveFunction(DRIVE_SPEED, 1, 1, 1, 1);
                 driveFunction(DRIVE_SPEED, -2, -2, -2, -2);
-                driveFunction(DRIVE_SPEED, -25, 25, 25, -25);
-                driveFunction(DRIVE_SPEED, 31, 31, 31, 31);
-                driveFunction(DRIVE_SPEED,17,-17,-17,17);
-                driveFunction(DRIVE_SPEED,2,2,2,2);
+                driveFunction(DRIVE_SPEED, 25, -25, -25, 25);
+                driveFunction(DRIVE_SPEED, 34, 34, 34, 34);
+                driveFunction(DRIVE_SPEED,-18,18,18,-18);
                 pixelDeposit();
-                driveFunction(DRIVE_SPEED,-20,20,20,-20);
-            } else {//center
-                driveFunction(DRIVE_SPEED, 2,2,2,2);
-                driveFunction(DRIVE_SPEED, -2,-2,-2,-2);
-                driveFunction(DRIVE_SPEED, -35,35,35,-35);
+                driveFunction(DRIVE_SPEED,20,-20,-20,20);
+            } else if (inchesToLeft < inchesToRight && inchesToLeft < inchesToFront) {
                 driveFunction(TURN_SPEED,-24,24,-24,24);
-                driveFunction(DRIVE_SPEED,3,3,3,3);
+                driveFunction(DRIVE_SPEED, 1,1,1,1);
+                driveFunction(DRIVE_SPEED,-34,-34,-34,-34);
+                driveFunction(DRIVE_SPEED,6,-6,-6,6);
+                driveFunction(TURN_SPEED,-48,48,-48,48);
                 pixelDeposit();
-                driveFunction(DRIVE_SPEED,-27,27,27,-27);//strafing to the right
+                driveFunction(DRIVE_SPEED,-14,14,14,-14);
+
+            } else {//center
+                driveFunction(DRIVE_SPEED, -1,-1,-1,-1);
+                driveFunction(DRIVE_SPEED, 38,-38,-38,38);
+                driveFunction(TURN_SPEED,24,-24,24,-24);
+                pixelDeposit();
+                driveFunction(DRIVE_SPEED,27,-27,-27,27);//strafing to the right
+                driveFunction(DRIVE_SPEED,4,4,4,4);
+
             }
 
         }
@@ -113,11 +114,11 @@ public class Blue1PixelDepositAuto extends LinearOpMode {
         while (opModeIsActive() && runtime.seconds() <= 7) {
             states.setStatePos(StatesBhindi.statePos.DEPOSIT);
             states.update();
-            while (runtime.seconds() > 3 && runtime.seconds() <=5 ) {
+            while (runtime.seconds() > 2 && runtime.seconds() <=4 ) {
                 states.setStatePos(StatesBhindi.statePos.CLAW_OPEN);
                 states.update();
             }
-            while (runtime.seconds() > 5 && runtime.seconds() <= 7) {
+            while (runtime.seconds() > 4 && runtime.seconds() <= 7) {
 
                 states.setStatePos(StatesBhindi.statePos.INIT);
                 states.update();
@@ -126,13 +127,13 @@ public class Blue1PixelDepositAuto extends LinearOpMode {
         }
 
     }
-    public void driveFunction(double speed,
-                              double leftInches, double rightInches, double backleft, double backright)
-    {
+        public void driveFunction(double speed,
+        double leftInches, double rightInches, double backleft, double backright)
+        {
 
 
-        drive.encoderDrive(speed,leftInches,rightInches,backleft,backright, telemetry,this);
-        drive.stopDriveTrain();
+            drive.encoderDrive(speed,leftInches,rightInches,backleft,backright, telemetry,this);
+            drive.stopDriveTrain();
 
-    }
+        }
 }
