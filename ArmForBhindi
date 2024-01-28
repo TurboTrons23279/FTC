@@ -1,0 +1,79 @@
+package org.firstinspires.ftc.teamcode;
+
+        import com.arcrobotics.ftclib.controller.PIDController;
+        import com.qualcomm.robotcore.hardware.DcMotor;
+        import com.qualcomm.robotcore.hardware.DcMotorEx;
+        import com.qualcomm.robotcore.hardware.HardwareMap;
+
+public class  ArmForBhindi {
+    private PIDController controllerBase, controllerExtend;
+
+    public static double pBase = 0.0013, i = 0, d = 0, pExtend = 0.0013;
+
+    private DcMotorEx armMotor, armExtendMotor;
+
+    public static double targetBase = 0, targetExtend = 0;
+
+    public double power;
+
+    public ArmForBhindi(HardwareMap hardwareMap) {
+        controllerBase = new PIDController(pBase, i, d);
+        controllerExtend = new PIDController(pExtend, i, d);
+
+        armMotor = hardwareMap.get(DcMotorEx.class, "baseArm");
+        armExtendMotor = hardwareMap.get(DcMotorEx.class, "extendArm");
+
+        armMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        armMotor.setZeroPowerBehavior(DcMotorEx.ZeroPowerBehavior.BRAKE);
+        armMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+
+        armExtendMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        armExtendMotor.setZeroPowerBehavior(DcMotorEx.ZeroPowerBehavior.BRAKE);
+        armExtendMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+    }
+
+    public void setArm(String position) {
+        controllerBase.setPID(pBase, i, d);
+        double armPosBase = armMotor.getCurrentPosition();
+
+        double targetPosition = 0;
+
+        if (position == "deposit") {
+            targetPosition = -900;
+        } else if (position == "intake") {
+            targetPosition = -1400;
+        } else if (position =="hangarm"){
+            targetPosition = -1000;
+        }
+
+        double pid = controllerBase.calculate(armPosBase, targetPosition);
+
+        double power = pid;
+
+        armMotor.setPower(power);
+
+
+
+    }
+
+    public void setArmExtend(String position) {
+        controllerExtend.setPID(pExtend, i, d);
+        double armPosExtend = armExtendMotor.getCurrentPosition();
+
+        double targetPosition = 0;
+
+        if (position == "deposit") {
+            targetPosition = -35;
+        } else if (position == "intake") {
+            targetPosition = 103;
+        } else if (position =="hangarm"){
+            targetPosition = -45;
+        }
+
+        double pid = controllerExtend.calculate(armPosExtend, targetPosition);
+
+        double power = pid;
+
+        armExtendMotor.setPower(power);
+    }
+}
